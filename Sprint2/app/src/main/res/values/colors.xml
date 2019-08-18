@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FB4D3D</color>
+    <color name="colorPrimaryDark">#c10214</color>
+    <color name="colorPrimaryLight">#ff8269</color>
+    <color name="colorAccent">#aceca1</color>
+    <color name ="colorAccentDark">#7bb972</color>
+    <color name ="colorAccentLight">#dfffd3</color>
+    <color name = "cvBackground">#F7F4F3</color>
+</resources>
