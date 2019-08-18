@@ -1,5 +1,6 @@
 package com.example.sprint2.adapter
 
+import android.content.Context
 import com.example.sprint2.ui.MainActivity
 import android.view.LayoutInflater
 import android.view.View
@@ -16,6 +17,7 @@ import kotlinx.android.synthetic.main.example_food_item_layout.view.*
 import java.security.AccessController.getContext
 
 class FoodListAdapter(val data: ArrayList<FoodItem>): RecyclerView.Adapter<FoodListAdapter.ViewHolder>() {
+
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
         val imageView: ImageView = view.cv_iv
         val nameTextView: TextView = view.cv_tv
@@ -35,16 +37,17 @@ class FoodListAdapter(val data: ArrayList<FoodItem>): RecyclerView.Adapter<FoodL
         holder.imageView.setImageResource(data[position].Icon())
         holder.nameTextView.text = data[position].Name()
 
-        holder.switch.setOnClickListener {p0 ->
+        holder.switch.setOnClickListener { p0 ->
+
             if(!selectedList.contains(data[position].Name()) && holder.switch.isChecked) {
                 selectedList.add(data[position].Name())
                 println(selectedList)
-                // TODO: (Line: 41,45) Figure out how to add Toast (need to add correct context)
-                //Toast.makeText(p0.context, "${holder.nameTextView.text} added to shopping list!",Toast.LENGTH_SHORT)
+
+                Toast.makeText(p0.context, "${holder.nameTextView.text} added to shopping list!",Toast.LENGTH_SHORT).show()
             } else {
                 if(selectedList.contains(data[position].Name()) && !holder.switch.isChecked) {
                     selectedList.remove(data[position].Name())
-                //Toast.makeText(p0.context, "${holder.nameTextView.text} removed from shopping list!", Toast.LENGTH_SHORT)
+                Toast.makeText(p0.context, "${holder.nameTextView.text} removed from shopping list!", Toast.LENGTH_SHORT).show()
                 }
                 println(selectedList)
             }
